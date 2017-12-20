@@ -41,7 +41,7 @@ A new 'Bulls and Cows' algorithm that never existed before.
 * Average: 5.138
 
 ### 2.2. 4-digit
-#### 2.2.1 Random Algorithm
+#### 2.2.1. Random Algorithm
 | Attempt        | Count           | Percentage  |
 | -------------- |:---------------:| -----------:|
 | 1 |	7 |	0.02% |
@@ -56,7 +56,7 @@ A new 'Bulls and Cows' algorithm that never existed before.
 
 * Average: 5.479
 
-#### 2.2.2 My Algorithm
+#### 2.2.2. My Algorithm
 | Attempt        | Count           | Percentage  |
 | -------------- |:---------------:| -----------:|
 | 1 |	6 |	0.02% |
@@ -70,3 +70,6 @@ A new 'Bulls and Cows' algorithm that never existed before.
 | 9 |	0 | 0.00% |
 
 * Average: 5.316
+
+## 3. Used Libraries
+* [MoreLinq](https://github.com/morelinq/MoreLINQ)
