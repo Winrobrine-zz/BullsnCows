@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 
 namespace BullsnCows
 {
     class Program
     {
-        static Game game;
-
         static void InteractiveGame()
         {
-            game = new Game(Game.Digit.Three);
+            Game game = new Game(Game.Digit.Four);
 
             while (!game.IsFinished())
             {
@@ -32,42 +31,23 @@ namespace BullsnCows
 
         static void TestNumbers()
         {
-            int stepSum;
-            int stepMin, stepMax;
+            int stepSum = 0;
+            int stepMin = int.MaxValue, stepMax = int.MinValue;
             int[] distribution = new int[10];
 
-            var permutations = Permutation.Create("1234567890", 4);
+            var numbers = Permutation.Create("1234567890", 4).Shuffle().ToList();
 
-            stepSum = 0;
-            stepMin = int.MaxValue;
-            stepMax = int.MinValue;
-
-            string[] numbers = permutations.Shuffle().ToArray();
-
-            for (int n = 0; n < numbers.Length; n++)
+            for (int n = 0; n < numbers.Count; n++)
             {
                 string number = numbers[n];
 
-                game = new Game(Game.Digit.Four);
+                Game game = new Game(Game.Digit.Four);
 
                 while (!game.IsFinished())
-                {
-                    string question = game.GetQuestion();
-
-                    int bulls = 0, cows = 0;
-
-                    for (int i = 0; i < number.Length; i++)
-                    {
-                        if (number[i] == question[i])
-                            bulls++;
-                        else if (number.Contains(question[i]))
-                            cows++;
-                    }
-
-                    game.PutAnswer(bulls, cows);
-                }
+                    game.PutAnswer(game.GetAnswer(number, game.GetQuestion()));
 
                 string result;
+
                 if (!game.IsCorrect(out result))
                 {
                     Console.WriteLine("Error");
@@ -80,20 +60,21 @@ namespace BullsnCows
                 stepMax = Math.Max(stepMax, step);
                 distribution[step]++;
 
+                Console.Clear();
+
+                for (int i = 1; i <= 9; i++)
+                    Console.WriteLine(distribution[i]);
+
                 Console.WriteLine("#{0} num: {1} avg: {2} best: {3} worst: {4}", n + 1, number, stepSum / (double)(n + 1), stepMin, stepMax);
             }
 
-            for (int i = 1; i <= 9; i++)
-                Console.WriteLine(distribution[i]);
+            Console.ReadLine();
         }
 
         static void Main(string[] args)
         {
-            while (true)
-            {
-                //InteractiveGame();
-                TestNumbers();
-            }
+            //new Thread(new ThreadStart(InteractiveGame)).Start();
+            new Thread(new ThreadStart(TestNumbers)).Start();
         }
     }
 }
