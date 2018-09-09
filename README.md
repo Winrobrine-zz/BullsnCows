@@ -4,10 +4,10 @@ A new 'Bulls and Cows' algorithm that never existed before.
 ## 1. Summary
 ### 1.1. Average Attempts
 * 3-digit: 5.138
-* 4-digit: 5.316
+* 4-digit: 5.313
 ### 1.2. Worst Attempts
 * 3-digit: 8 (2.51%)
-* 4-digit: 8 (0.06%)
+* 4-digit: 8 (0.08%)
 ## 2. Statistics
 ### 2.1. 3-digit
 #### 2.1.1. Random Algorithm
@@ -59,17 +59,17 @@ A new 'Bulls and Cows' algorithm that never existed before.
 #### 2.2.2. My Algorithm
 | Attempt        | Count           | Percentage  |
 | -------------- |:---------------:| -----------:|
-| 1 |	6 |	0.02% |
-| 2 |	68 | 0.22% |
-| 3 |	697 |	2.30% |
-| 4 |	3858 | 12.76% |
-| 5 |	12352 | 40.85% |
-| 6 |	11493 | 38.01% |
-| 7 |	1749 | 5.78% |
-| 8 |	17 | 0.06% |
+| 1 |	7 |	0.02% |
+| 2 |	88 | 0.29% |
+| 3 |	671 |	2.22% |
+| 4 |	3853 | 12.74% |
+| 5 |	12457 | 41.19% |
+| 6 |	11407 | 37.72% |
+| 7 |	1732 | 5.73% |
+| 8 |	25 | 0.08% |
 | 9 |	0 | 0.00% |
 
-* Average: 5.316
+* Average: 5.313
 
 ## 3. Used Libraries
 * [MoreLinq](https://github.com/morelinq/MoreLINQ)
